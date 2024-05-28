@@ -6,5 +6,26 @@
     <title>TOP Js Form</title>
     <script defer src="./script.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <form novalidate action="">
+        <label for="email">Email:</label>
+        <input type="email" id="email" />
+        <span class="error"></span><br />
+        <label for="country">Country:</label>
+        <input type="text" id="country" />
+        <span class="error"></span><br />
+        <label for="zip" id="zip">Zip Code:</label>
+        <input type="number" />
+        <span class="error"></span><br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" />
+        <span class="error"></span><br />
+        <label for="password-confirmation">Confirm password:</label>
+        <input type="password" id="password-confirmation" />
+        <span class="error"></span><br />
+        <button>Submit</button>
+      </form>
+    </div>
+  </body>
 </html>
