@@ -11,6 +11,8 @@ const passwordError = document.querySelector(
   "#password-confirmation + span.error"
 );
 
+// Could improve by having a generic function to show or remove error
+
 email.addEventListener("input", (e) => {
   if (email.validity.valid) {
     emailError.textContent = "";
