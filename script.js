@@ -6,9 +6,9 @@ const countryError = document.querySelector("#country + span.error");
 const zip = document.querySelector("#zip");
 const zipError = document.querySelector("#zip + span.error");
 const password = document.querySelector("#password");
-const passwordValidation = document.querySelector("#password-validation");
+const passwordConfirmation = document.querySelector("#password-confirmation");
 const passwordError = document.querySelector(
-  "#password-validation + span.error"
+  "#password-confirmation + span.error"
 );
 
 email.addEventListener("input", (e) => {
@@ -56,5 +56,17 @@ function showZipError() {
     zipError.textContent = "You need to enter a ZIP Code.";
   } else if (zip.validity.rangeUnderflow || zip.validity.rangeOverflow) {
     zipError.textContent = `Please enter a 5 characters ZIP Code.`;
+  }
+}
+
+passwordConfirmation.addEventListener("input", (e) => {
+  showPasswordError();
+});
+
+function showPasswordError() {
+  if (password.value !== passwordConfirmation.value) {
+    passwordError.textContent = "Passwords don't match";
+  } else {
+    passwordError.textContent = "";
   }
 }
