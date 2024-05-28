@@ -70,8 +70,8 @@ passwordConfirmation.addEventListener("input", (e) => {
 });
 
 function showPasswordError() {
-  if (password.value !== passwordConfirmation.value) {
-    passwordError.textContent = "Passwords don't match";
+  if (password.value !== passwordConfirmation.value || password.value === "") {
+    passwordError.textContent = "Passwords don't match or are empty";
     password.className = "error";
     passwordConfirmation.className = "error";
   } else {
@@ -80,3 +80,21 @@ function showPasswordError() {
     passwordConfirmation.className = "";
   }
 }
+
+form.addEventListener("submit", (e) => {
+  if (
+    !email.validity.valid ||
+    !country.validity.valid ||
+    !zip.validity.valid ||
+    password.value !== passwordConfirmation.value
+  ) {
+    e.preventDefault();
+    window.alert("Hmm something seems wrong");
+    showEmailError();
+    showCountryError();
+    showZipError();
+    showPasswordError();
+  } else {
+    window.alert("High five ! All the fields have been correctly filled :)");
+  }
+});
