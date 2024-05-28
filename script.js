@@ -42,3 +42,19 @@ function showCountryError() {
     countryError.textContent = "You need to enter a country address.";
   }
 }
+
+zip.addEventListener("input", (e) => {
+  if (zip.validity.valid) {
+    zipError.textContent = "";
+  } else {
+    showZipError();
+  }
+});
+
+function showZipError() {
+  if (zip.validity.valueMissing) {
+    zipError.textContent = "You need to enter a ZIP Code.";
+  } else if (zip.validity.rangeUnderflow || zip.validity.rangeOverflow) {
+    zipError.textContent = `Please enter a 5 characters ZIP Code.`;
+  }
+}
