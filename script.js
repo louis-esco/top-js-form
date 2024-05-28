@@ -14,6 +14,7 @@ const passwordError = document.querySelector(
 email.addEventListener("input", (e) => {
   if (email.validity.valid) {
     emailError.textContent = "";
+    email.className = "";
   } else {
     showEmailError();
   }
@@ -27,11 +28,13 @@ function showEmailError() {
   } else if (email.validity.tooShort) {
     emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
   }
+  email.className = "error";
 }
 
 country.addEventListener("input", (e) => {
   if (country.validity.valid) {
     countryError.textContent = "";
+    country.className = "";
   } else {
     showCountryError();
   }
@@ -41,11 +44,13 @@ function showCountryError() {
   if (country.validity.valueMissing) {
     countryError.textContent = "You need to enter a country address.";
   }
+  country.className = "error";
 }
 
 zip.addEventListener("input", (e) => {
   if (zip.validity.valid) {
     zipError.textContent = "";
+    zip.className = "";
   } else {
     showZipError();
   }
@@ -57,6 +62,7 @@ function showZipError() {
   } else if (zip.validity.rangeUnderflow || zip.validity.rangeOverflow) {
     zipError.textContent = `Please enter a 5 characters ZIP Code.`;
   }
+  zip.className = "error";
 }
 
 passwordConfirmation.addEventListener("input", (e) => {
@@ -66,7 +72,11 @@ passwordConfirmation.addEventListener("input", (e) => {
 function showPasswordError() {
   if (password.value !== passwordConfirmation.value) {
     passwordError.textContent = "Passwords don't match";
+    password.className = "error";
+    passwordConfirmation.className = "error";
   } else {
     passwordError.textContent = "";
+    password.className = "";
+    passwordConfirmation.className = "";
   }
 }
