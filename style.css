@@ -5,3 +5,7 @@ input:invalid {
 input:focus:invalid {
   outline: none;
 }
+
+span.error {
+  color: red;
+}
